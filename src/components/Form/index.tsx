@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import IContato from '../../types/contato';
 import Botao from '../Botao';
 
@@ -8,8 +8,12 @@ interface IFormularioProps{
 
 function Form({setContatos}: IFormularioProps) {
 
+    const [nome, setNome] = useState("");
+    const [fone, setFone] = useState("");
+
     function adicioarContato(event: React.FormEvent<HTMLFormElement>){
-        
+        event.preventDefault();
+        setContatos((contatos) => [...contatos, { nome, fone}]);    
     }
 
     // função que será executada quando o formulário for submetido

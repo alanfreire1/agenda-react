@@ -14,7 +14,13 @@ function Form({setContatos}: IFormularioProps) {
     function adicioarContato(event: React.FormEvent<HTMLFormElement>){
         event.preventDefault();
         setContatos((contatos) => [...contatos, { nome, fone}]);    
+        
+        setNome("");
+        setFone("");
+        const formulario = event.target as HTMLFormElement;
+        formulario.reset();
     }
+
 
     // função que será executada quando o formulário for submetido
     function salvar(event: React.FormEvent<HTMLFormElement>) {
